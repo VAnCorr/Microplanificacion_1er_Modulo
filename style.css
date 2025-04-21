@@ -1,0 +1,241 @@
+/* styles.css */
+
+/* Importar Fuente (Opcional) */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f9fa; /* Un gris muy claro */
+    color: #333;
+}
+
+/* Paleta de Colores Personalizada */
+:root {
+    --primary-color: #0d6efd; /* Azul Bootstrap */
+    --secondary-color: #6c757d; /* Gris Bootstrap */
+    --light-green: #e0f2f1;   /* Verde agua muy suave */
+    --medium-green: #a7d7c5; /* Verde agua medio */
+    --dark-green: #5eaaa8;   /* Verde agua oscuro */
+    --text-dark: #212529;
+    --text-light: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+}
+
+/* Título de la aplicación */
+.app-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.75rem; /* Ajuste de tamaño */
+}
+
+/* Mejoras al Acordeón */
+.accordion-button {
+    background-color: var(--light-green);
+    color: var(--text-dark);
+    font-weight: bold;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--dark-green);
+    color: var(--text-light);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(94, 170, 168, 0.5); /* Sombra de foco con color personalizado */
+}
+
+.accordion-item {
+    border: 1px solid var(--border-color);
+    margin-bottom: 0.5rem; /* Espacio entre días */
+    border-radius: 0.375rem; /* Bootstrap default */
+    overflow: hidden; /* Para que el borde redondeado funcione bien */
+}
+
+.accordion-body {
+    background-color: var(--card-bg);
+    padding: 0; /* Quitamos padding para que la tabla ocupe todo */
+}
+
+/* Estilos de la Tabla dentro del Acordeón */
+.schedule-table {
+    margin-bottom: 0; /* Quitar margen inferior de la tabla */
+}
+
+.schedule-table thead {
+    background-color: var(--medium-green);
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.schedule-table th,
+.schedule-table td {
+    vertical-align: middle;
+    padding: 0.9rem 0.75rem; /* Ajustar padding si es necesario */
+    border-top: 1px solid var(--border-color);
+}
+
+/* Estilo Hover para filas de la tabla */
+.schedule-table tbody tr:hover {
+    background-color: #f1f1f1; /* Un gris claro al pasar el ratón */
+}
+
+/* Controles */
+.controls {
+    border: 1px solid var(--border-color);
+}
+
+/* Botón Imprimir */
+#printButton {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: background-color 0.2s ease-in-out;
+}
+
+#printButton:hover {
+    background-color: #0b5ed7; /* Azul más oscuro al pasar el ratón */
+    border-color: #0a58ca;
+}
+
+/* Estilos para impresión */
+@media print {
+    body {
+        font-family: sans-serif; /* Fuente simple para impresión */
+        background-color: #fff !important; /* Fondo blanco forzado */
+        color: #000;
+        font-size: 10pt; /* Tamaño de fuente base para impresión */
+    }
+
+    header, footer, .controls, #searchInput, #printButton, .accordion-button::after, .spinner-border, .app-title {
+        display: none !important; /* Ocultar elementos no necesarios */
+    }
+
+     main.container {
+        max-width: 100% !important; /* Usar todo el ancho */
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .accordion {
+        /* No mostrar el acordeón como tal, solo su contenido */
+    }
+
+    .accordion-item {
+        border: none !important;
+        margin-bottom: 1.5rem; /* Espacio entre tablas de días */
+        page-break-inside: avoid; /* Intentar no cortar un día entre páginas */
+    }
+
+    .accordion-collapse {
+        display: block !important; /* Mostrar siempre el contenido */
+        visibility: visible !important;
+        height: auto !important; /* Asegurar altura automática */
+        border: none !important;
+        /* Eliminar cualquier propiedad de colapso */
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+
+     .accordion-button { /* Cambiarlo a un título de sección */
+        background-color: transparent !important;
+        color: #000 !important;
+        font-size: 1.3rem !important;
+        padding: 0.5rem 0 !important;
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid #000 !important;
+        text-align: left !important;
+        font-weight: bold !important;
+        display: block !important; /* Hacerlo un bloque */
+        width: 100% !important; /* Ocupar todo el ancho */
+        box-shadow: none !important;
+    }
+
+     .accordion-button .badge {
+        display: none; /* Ocultar badge en impresión */
+    }
+
+    .accordion-body {
+        padding: 0 !important;
+    }
+
+    .table-responsive {
+        overflow-x: visible !important; /* No necesita scroll en impresión */
+    }
+
+    .schedule-table {
+        width: 100% !important;
+        border-collapse: collapse !important; /* Mejor para impresión */
+        font-size: 9pt !important; /* Tamaño de fuente ligeramente menor */
+        margin-top: 0 !important;
+        border: 1px solid #ccc !important; /* Borde alrededor de la tabla */
+    }
+
+     .schedule-table thead {
+        background-color: #e9ecef !important; /* Fondo gris claro para cabecera */
+        color: #000 !important;
+        -webkit-print-color-adjust: exact !important; /* Forzar impresión de fondos */
+        print-color-adjust: exact !important;
+        font-weight: bold !important; /* Asegurar negrita */
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        border: 1px solid #ccc !important; /* Bordes visibles */
+        padding: 0.4rem !important;
+        vertical-align: top !important; /* Alinear arriba para textos largos */
+        word-wrap: break-word; /* Romper palabras largas si es necesario */
+    }
+
+    .schedule-table tbody tr {
+        page-break-inside: avoid !important; /* Intentar no cortar filas */
+        background-color: #fff !important; /* Fondo blanco para filas */
+    }
+    .schedule-table tbody tr:nth-child(odd) {
+         background-color: #f8f9fa !important; /* Fondo ligeramente gris para filas impares si se desea */
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+
+    /* Ocultar enlaces o elementos interactivos que no tienen sentido en papel */
+    a[href]:after {
+      content: none !important;
+    }
+
+    /* Título de la página para impresión */
+    @page {
+        margin: 1cm; /* Márgenes de la página */
+    }
+
+    body::before {
+        content: "Horario Residentes UCI (1er Año) - Mayo/Junio 2025";
+        display: block;
+        text-align: center;
+        font-size: 14pt;
+        font-weight: bold;
+        margin-bottom: 1cm;
+    }
+}
+
+
+/* Mejoras Responsivas */
+@media (max-width: 767.98px) {
+    .app-title {
+        font-size: 1.5rem; /* Título más pequeño en móviles */
+    }
+
+    .controls .col-md-4 {
+        text-align: center !important; /* Centrar botón en móviles */
+    }
+     .controls .w-md-auto {
+        width: 100% !important; /* Botón ocupa todo el ancho */
+    }
+
+    /* Ajustar tabla para pantallas pequeñas si se vuelve ilegible */
+    .schedule-table th,
+    .schedule-table td {
+        font-size: 0.85rem; /* Fuente más pequeña */
+        padding: 0.6rem 0.4rem;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario de Clases Residentes - Mayo/Junio UCI 1er Año</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts (Opcional, para tipografía) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Bootstrap Icons (para iconos) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <header class="bg-light shadow-sm mb-4">
+        <div class="container py-3">
+            <h1 class="app-title">Horario Residentes UCI (1er Año) - Mayo/Junio 2025</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Controles -->
+        <section class="controls mb-4 p-3 bg-white rounded shadow-sm">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-8">
+                    <label for="searchInput" class="form-label fw-bold">Buscar por Asignatura, Evento o Docente/Expositor:</label>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Escribe para filtrar...">
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <button id="printButton" class="btn btn-primary w-100 w-md-auto">
+                        <i class="bi bi-printer-fill me-2"></i>Imprimir Horario
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acordeón del Horario -->
+        <section id="scheduleAccordion" class="accordion">
+            <!-- El contenido del acordeón se generará dinámicamente aquí -->
+             <div class="text-center p-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Cargando horario...</span>
+                </div>
+                <p class="mt-2">Cargando horario...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-5 py-3 bg-light text-center text-muted">
+        <div class="container">
+            <!-- ========================================== -->
+            <!-- AQUÍ ESTÁ LA LÍNEA QUE SE MODIFICÓ         -->
+            <!-- ========================================== -->
+            <p class="mb-0">© <span id="currentYear"></span> Hospital Militar Escuela Dr. Alejandro Davila Bolaños/Servicio de Cuidados Intensivos Adultos. Todos los derechos reservados.</p>
+            <!-- ========================================== -->
+            <!-- FIN DE LA LÍNEA MODIFICADA                -->
+            <!-- ========================================== -->
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (incluye Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Script Personalizado -->
+    <script src="app.js"></script>
+</body>
+</html>
